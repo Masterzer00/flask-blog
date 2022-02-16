@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block body %}
+<style>
+    .s{
+    height:20px;}
+    .left{
+    float:left;}
+
+    .right{
+    float:right;}
+</style>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('      {{url_for('static',filename='assets/img/home-bg.jpg' )}}        ')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>WELCOME TO THE DASHBOARD</h1>
+                            <span class="subheading">Managing the blogs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="form-group">
+                        <h2>THE BASIC ACTION</h2>
+                            <div class="s"></div>
+                                  <a type=button class="btn btn-primary" href="/login.html">&#8592;BACK TO THE DASHBOARD</a>
+                        <div class="s"></div>
+                                </div>
+                    <hr>
+                    {% for mesg in get_flashed_messages() %}
+
+                      <h2>{{ mesg }}</h2>
+                      {% endfor %}
+                    <h3>EDIT THE DETAILS OF THE POST</h3>
+                    <div class="s"></div>
+
+                    <!-- Post preview-->
+<form name="sentMessage" id="contactForm" action = "/edit/{{no}}" method="post" novalidate>
+                                <div class="control-group">
+                                  <div class="form-group floating-label-form-group controls">
+                                    <label>TITLE</label>
+                                    <input type="text" class="form-control" placeholder="TITLE" id="title" name='title' value="{{post.title}}" required data-validation-required-message="enter the new title.">
+                                    <p class="help-block text-danger"></p>
+                                  </div>
+                                </div>
+                                <div class="control-group">
+                                  <div class="form-group floating-label-form-group controls">
+                                    <label>SLUG</label>
+                                    <input type="text" class="form-control" placeholder="SLUG" id="slug" name="slug" value="{{post.slug}}" required data-validation-required-message="Please enter slug.">
+                                    <p class="help-block text-danger"></p>
+                                  </div>
+                                </div>
+                                <div class="control-group">
+                                  <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label>CONTENT</label>
+                                    <input type="text" class="form-control" placeholder="CONTENT" name="content" id="content" value="{{post.content}}" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                  </div>
+                                </div>
+                                <div class="control-group">
+                                  <div class="form-group floating-label-form-group controls">
+                                    <label>IMG_FILE</label>
+                                    <input type="text" class="form-control" placeholder="IMG_FILE" name = "img_file" id="img_file" value="{{post.img_file}}" required data-validation-required-message="Please enter a message."></input>
+                                    <p class="help-block text-danger"></p>
+                                  </div>
+                                </div>
+                                <br>
+                                <div id="success"></div>
+                                <div class="form-group">
+                                  <button type="submit" class="btn btn-primary" id="sendMessageButton">SUBMIT</button>
+                                </div>
+                              </form>
+
+                    <!-- Pager-->
+<!--                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>-->
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        {% endblock %}

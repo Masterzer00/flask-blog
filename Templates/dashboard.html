@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('      {{url_for('static',filename='assets/img/home-bg.jpg' )}}        ')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>WELCOME TO THE DASHBOARD</h1>
+                            <span class="subheading">Managing the blogs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content-->
+
+        <div class="container px-4 px-lg-5">
+
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+
+                <div class="col-md-10 col-lg-8 col-xl-7">
+<!--                    <form >-->
+<!--                        <H2>ADD A NEW POST</H2>-->
+<!--                         -->
+<!--                    </form>-->
+
+<!--                    <form action="/logout" >-->
+<!--                      <button type="submit" class="btn btn-primary" class="floated">logout</button>-->
+<!--                    </form>-->
+                    <h2>ADD A NEW POST HERE:</h2>
+                    <div style="
+                     height: 20px;
+                     "></div>
+                <a href="/edit/0" button class="btn btn-primary text" class="inline">ADD POST</button></a>
+                    <div style="
+                     height: 20px;
+                     "></div>
+                    <hr>
+                     <form action="/uploader" method="post" enctype="multipart/form-data">
+            <h2>UPLOAD A FILE:</h2>
+
+                    <div style="width: 50%; display: table;">
+        <div style="display: table-row; height: 80px;">
+            <div style="width: 40%; display: table-cell;">
+               <input type="file" name="file1" class="inline">
+            </div>
+            <div style="display: table-cell;">
+                          <button type="submit" class="btn btn-primary"class="inline">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
+
+
+</form><hr>
+                    <div style="
+                     height: 20px;
+                     "></div>
+
+                    <h3>HERE ARE ALL OF THE AVAILABLE POST:</h3><hr>
+                    <!-- Post preview-->
+                  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">S.no.</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for post in post%}
+    <tr>
+      <th scope="row">{{post.no}}</th>
+      <td>{{post.title}}</td>
+      <td>{{post.date_time}}</td>
+        <td><a href="/edit/{{post.no}}" button class="btn btn-primary text">Edit</button></a></td>
+        <td><a href="/delete/{{post.no}}"button class="btn btn-primary text">Delete</button></a></td>
+
+    </tr>
+
+  {%- endfor %}
+
+
+  </tbody>
+
+</table>
+               <p align="center">NO MORE POST...</p>
+                    <!-- Pager-->
+<!--                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>-->
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        {% endblock %}
+.inline {
+   display:inline-block;
+   margin-right:10px;
+}

@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block body %}
+<style>
+    .s{
+    height:20px;}
+    .left{
+    float:left;}
+
+    .right{
+    float:right;}
+</style>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('      {{url_for('static',filename='assets/img/home-bg.jpg' )}}        ')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Clean Blog</h1>
+                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    {% for post in post %}
+                    <div class="post-preview">
+                        <a href="post.html/{{post.slug}}">
+                            <h2 class="post-title">{{post.title}}</h2>
+                            <h3 class="post-subtitle">{{post.content[0:50]}}...</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            {{post.date_time}}
+                        </p>
+                    </div>
+                    <hr class="my-4" />
+                    <!-- Divider-->
+                    
+                    {%- endfor %}
+                    <!-- Divider-->
+                    <div class="bg-info">
+                    {% if next!='#' %}
+    <a class="btn btn-primary right text-uppercase" href="{{next}}">New post →</a>
+    {% endif %}
+                       {% if prev!='#' %}
+                    <a class="btn btn-primary left text-uppercase" href="{{prev}}">&#8592; Older Posts</a>
+                        {% endif %}
+                </div>
+
+                </div>
+            </div>
+        </div>
+   <div class="s"></div>
+        <!-- Footer-->
+        {% endblock %}

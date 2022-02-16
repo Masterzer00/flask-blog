@@ -1,0 +1,16 @@
+{
+    "params":
+        {
+            "local_server": "True",
+            "local_uri": "mysql://root:@127.0.0.1/contact",
+            "prod_uri": "mysql://root:@127.0.0.1/contact",
+            "fb_url": "https://facebook.com",
+            "USER": "zanny3621@gmail.com",
+            "password": "saadaliblog",
+            "about_text": "yo everyone simple done by me and help of the teacher harry its all for fun and learning even you can do it simply follow his tutorial",
+            "admin_user": "sksa",
+            "admin_pass": "saadsblog",
+            "upload_location": "C:\\Users\\alisa\\PycharmProjects\\pythonProject\\beginner\\flask2\\static\\assets\\img",
+            "no_of_posts": "3"
+        }
+}
